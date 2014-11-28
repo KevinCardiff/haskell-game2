@@ -1,0 +1,41 @@
+name:                haskell-game
+version:             0.4.0.0
+synopsis:            A simple CLI dungeon crawler written in Haskell
+license:             BSD3
+license-file:        LICENSE
+author:              Andrew Anderson
+maintainer:          aanderso@tcd.ie
+category:            Game
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  build-depends:      base,
+                      ansi-terminal
+
+  hs-source-dirs:     src/
+  default-language:   Haskell2010
+
+executable haskell-game
+  main-is:            Main.hs
+  build-depends:      base,
+                      ansi-terminal
+
+  hs-source-dirs:     src/
+  default-language:   Haskell2010
+  default-extensions: NoImplicitPrelude, TypeSynonymInstances, FlexibleInstances, OverlappingInstances
+
+test-suite Main
+  main-is: Main.hs
+  type: exitcode-stdio-1.0
+  x-uses-tf: true
+  build-depends:  base,
+                  ansi-terminal,
+                  HUnit,
+                  test-framework,
+                  test-framework-hunit,
+                  test-framework-quickcheck2
+
+  hs-source-dirs: test, src
+  default-language: Haskell2010
+  default-extensions: TypeSynonymInstances, FlexibleInstances, OverlappingInstances
